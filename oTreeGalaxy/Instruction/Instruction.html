@@ -1,0 +1,104 @@
+{{ block content }}
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+   
+    <title>Page Title</title>
+</head>
+
+<body background = "https://i.imgur.com/fclb61U.png">
+
+ 
+<h1 style="color: wheat;">Instructions</h1>
+
+<p style="background-color:black; color: white;"> Imagine that you are on a <b>spaceship</b> in a <b>galaxy</b> with infinite <b>planets</b>. 
+You left <b>planet Earth</b> because its resources have been fully depleted. You are one of the lucky ones who made it to one of the <b>spaceships</b>. 
+Your survival now depends on finding a resourceful planet in order for you and your people to start a new life there. This is a foraging game and it is is about testing which
+decisions you would make in such an environment. You will navigate through space, discover different planets, evaluate their value and decide whether you want to stay or move. 
+The goal is to forage planets, which in turn will give you resource points and ultimately find a planet can provide you with the needed resources to survive and that you want to conquer. 
+
+</p>
+
+
+<h3 style="color: wheat;">Decisions</h3>
+<p style="background-color:black; color: white;">
+
+In the beginning of the game, you do not know anything about the galaxy. 
+You also have little information about the planets. The only thing you know is that planets’ resources will be shown in terms of a payoff that can vary between [0, 100]. 
+
+  </p>
+
+  
+
+  <p style="background-color:black; color: white;">
+  
+  You have 5 levels to complete. In every level you have a total of 100 decision rounds at hand. The 3 decisions you can make are either:
+
+  <ol type="1">
+    <li style="color: white;" >Exploiting the planet</li>
+    <li style="color: white;">Keep exploring to find another planet</li>
+    <li style="color: white;">Settle down on this planet</li>
+  </ol> 
+
+  </p>
+  <p style="background-color:black; color: white;">
+  
+    If you decide to exploit a given planet, you will get to know how rich this planet is in terms of resources and how well you get to expand on this planet. 
+    As mentioned above, this will be shown in terms of a payoff that can vary between [0, 100]. 
+    Every planet in the galaxy has a randomly specified value that can vary randomly every round in an interval of [-10, 10]. 
+  
+  </p>
+  <p style="background-color:black; color: white;">
+  
+    <b>Example</b>: Let’s say that planet 1 has a randomly specified value of 50. 
+    Every round that you decide to exploit this planet’s resources, you will be given a random value that ranges between 40 and 60 [40, 60]. 
+  </p>
+  
+  <p style="background-color:black; color: white;">
+  
+  By exploiting a planet, you learn more and more about its value, which will give you a better idea of whether this planet will be feasible for you and your people. 
+  If you decide to exploit resources on a planet, you gather resources in the form of a payoff and you lose 1 decision round. 
+    
+  
+  
+  
+  </p>
+  <p style="background-color:black; color: white;">
+  
+    If you do not wish to stay on the current planet, because you do not like the payoff of the planet or because you believe that there might be a better planet in the orbit, 
+    you can decide to keep exploring and thereby going to the next planet. 
+    Travelling from one planet to the next one also comes with a cost. This is the exploration cost, that you will learn about before every level starts. 
+    
+    
+    
+    </p>
+
+    <p style="background-color:black; color: white;">
+  
+      By clicking the <b>next button</b> below, you can go to the comprehension questions of the instructions. 
+      
+      
+      
+      </p>
+
+
+<h3 style="color: wheat;">Goal</h3>
+
+      <p style="background-color:black; color: white;">
+  
+        Your goal is to maximize your payoffs in each level. At the end of each level, you will be given some feedback. 
+        
+        
+        
+        </p>
+
+
+</body>
+</html>
+
+
+{{ next_button }}
+
+{{ endblock }}

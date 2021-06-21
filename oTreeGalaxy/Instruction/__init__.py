@@ -8,7 +8,7 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'GalaxyGame'
+    name_in_url = 'Instruction'
     players_per_group = None
     num_rounds = 1
 
@@ -26,7 +26,8 @@ class Player(BasePlayer):
 
 
 # PAGES
-class MyPage(Page):
+
+class Instruction(Page):
     pass
 
 
@@ -38,4 +39,4 @@ class Results(Page):
     pass
 
 
-page_sequence = [MyPage, ResultsWaitPage, Results]
+page_sequence = [Instruction]

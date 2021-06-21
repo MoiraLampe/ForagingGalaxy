@@ -1,0 +1,43 @@
+{% block content %}
+<!DOCTYPE html>
+<html>
+  
+<br>
+<br>
+
+
+  <style>
+    body {
+    background-image: url('https://i.imgur.com/fclb61U.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  
+  
+  </style>
+
+<body>
+   
+
+
+<img style="width:60%" src="{{ static image }}">
+<br>
+<br>
+<br>
+<table class=buttons>
+  <tr>
+      <td><button class= "button" name="choice" value=1><b>Exploit Ressources</b></button>
+      <td><button class= "button" name="choice" value=0><b>Keep Exploring</b></button>
+      <td><button class= "button" name="choice" value=2><b>Stay on this Planet</b></button>
+</table>
+<br>
+<br>
+<br>
+
+<p style="background-color:black; color: white;"> <b>Round {{ subsession.round_number }}</b> </p>
+</body>
+</html>
+
+
+{{ endblock }}

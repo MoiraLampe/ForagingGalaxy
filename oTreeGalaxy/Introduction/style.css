@@ -1,0 +1,20 @@
+body{
+    background-color :blueviolet;
+    color: white;
+    font-size: 21px;
+
+
+}
+h1{
+    font-size: 70px;
+    color:wheat;
+}
+
+p{
+    color:yellowgreen;
+}
+
+.box{
+    background: pink;
+    width: 300px;
+}

@@ -2,20 +2,30 @@ from os import environ
 
 
 SESSION_CONFIGS = [
-
     dict(
-        name='Simplified_Planet_Version',
-        app_sequence=['Simplified_Planet_Version', 'survey'], #not sure what app sequence stands for?
-        num_demo_participants=1,
-    ),
-      dict(
-        name='GalaxyGame',
-        app_sequence=['Simplified_Planet_Version','GalaxyGame','survey'], #not sure what app sequence stands for?
+        name='Introduction',
+        app_sequence=['Introduction'], #not sure what app sequence stands for?
         num_demo_participants=1,
       ),
     dict(
+        name='Instruction',
+        app_sequence=['Introduction', 'Instruction','Planet_Game', 'survey'], #not sure what app sequence stands for?
+        num_demo_participants=1,
+    ),
+      
+    dict(
+        name='Planet_Game',
+        app_sequence=['Introduction', 'Instruction','Planet_Game', 'survey'], #not sure what app sequence stands for?
+        num_demo_participants=1,
+    ),
+      dict(
+        name='galaxy_game',
+        app_sequence=['Introduction','Instruction','galaxy_game','survey','EndOfGame'], #not sure what app sequence stands for?
+        num_demo_participants=10,
+      ),
+    dict(
         name='Survey',
-        app_sequence=['Simplified_Planet_Version', 'survey'],
+        app_sequence=['Planet_Game', 'survey'],
         num_demo_participants=1,
     ), #do I want to merge them together?
 ]

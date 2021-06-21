@@ -1,0 +1,56 @@
+{{ block content }}
+
+<div class="text-typing">
+    <p>Welcome on board.</p>
+    <p>You are now approaching your first planet.</p>
+  </div>
+
+
+<style>
+
+ 
+  
+  body {
+  margin:0 auto;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background-image: url('https://i.imgur.com/SUhH87C.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.text-typing {
+  padding:20px 30px;
+  background:#f5f5f5;
+  font-size:20px;
+  font-family:monospace;
+  border-radius:50px;
+  align-items:center;
+}
+.text-typing p {
+  margin:0px;
+  white-space:nowrap;
+  overflow:hidden;
+  animation:typing 10s steps(40,end) forwards,
+            blink 1s infinite;
+}
+@keyframes typing {
+  0% { width:0% }
+  100% { width:100% }
+}
+@keyframes blink {
+  0%,100% {
+    border-right:2px solid transparent;
+  }
+  50% {
+    border-right:2px solid #222;
+  }
+}
+
+</style>
+
+{{next_button}}
+
+{{ endblock }}

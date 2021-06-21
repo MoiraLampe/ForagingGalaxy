@@ -22,6 +22,7 @@ class Player(BasePlayer):
         choices=[['Male', 'Male'], ['Female', 'Female']],
         label='What is your gender?',
         widget=widgets.RadioSelect,
+    
     )
     crt_bat = models.IntegerField(
         label='''
