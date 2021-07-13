@@ -1,5 +1,12 @@
 {{ block content }}
-
+<style>
+  .center {
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 30%;
+}
+</style>
 
 <!DOCTYPE html>
 <html>
@@ -8,22 +15,31 @@
     <title>Page Title</title>
 </head>
 
-<body background = "https://i.imgur.com/fclb61U.png">
+<body>
 
  
-<h1 style="color: wheat;">Instructions</h1>
+<h1 style="background-color:white; color: black;">Instructions</h1>
 
-<p style="background-color:black; color: white;"> Imagine that you are on a <b>spaceship</b> in a <b>galaxy</b> with infinite <b>planets</b>. 
-You left <b>planet Earth</b> because its resources have been fully depleted. You are one of the lucky ones who made it to one of the <b>spaceships</b>. 
-Your survival now depends on finding a resourceful planet in order for you and your people to start a new life there. This is a foraging game and it is is about testing which
-decisions you would make in such an environment. You will navigate through space, discover different planets, evaluate their value and decide whether you want to stay or move. 
-The goal is to forage planets, which in turn will give you resource points and ultimately find a planet can provide you with the needed resources to survive and that you want to conquer. 
+<p style="background-color:white; color: black;"> Imagine that you are on a <b>spaceship</b> in a <b>galaxy</b> with infinite <b>planets</b>. 
+You left <b>Planet Earth</b> because its <b>resources</b> have been fully <b>depleted</b>. You are one of the lucky ones who made it to one of the <b>spaceships</b>. 
+<b>Your survival</b> now depends on finding a <b>resourceful planet</b> in order for you and your people to start a new life.
+<br>
+<br>
+<img src="https://i.imgur.com/4kDkGgu.png" width="300px" />
+<br>
+<br>
+This is a <b>foraging game</b> and it is is about testing which <b>decisions</b> you would make in such an environment. In the <b>context</b> of this game, 
+<b>foraging</b> means <b>gathering/collecting resources</b>.
+<br>
+<br>
+You will navigate through <b>space</b>, discover different <b>planets</b>, evaluate their <b>value</b> and decide whether you want to <b>stay</b> or <b>move</b>.
+The <b>goal</b> is to <b>forage planets</b>, which in turn will give you <b>resource points</b> and to ultimately find a <b>planet</b> that can provide you with the needed <b>resources</b> to <b>survive</b> and that you want to <b>conquer</b>. 
 
 </p>
 
 
-<h3 style="color: wheat;">Decisions</h3>
-<p style="background-color:black; color: white;">
+<h3 style="background-color:white; color: black;">Decisions</h3>
+<p style="background-color:white; color: black;">
 
 In the beginning of the game, you do not know anything about the galaxy. 
 You also have little information about the planets. The only thing you know is that planets’ resources will be shown in terms of a payoff that can vary between [0, 100]. 
@@ -32,73 +48,176 @@ You also have little information about the planets. The only thing you know is t
 
   
 
-  <p style="background-color:black; color: white;">
+  <p style="background-color:white; color: black;">
   
-  You have 5 levels to complete. In every level you have a total of 100 decision rounds at hand. The 3 decisions you can make are either:
+  You have <b>5 levels</b> to complete. The <b>3 decisions</b> you can make are either:
 
-  <ol type="1">
-    <li style="color: white;" >Exploiting the planet</li>
-    <li style="color: white;">Keep exploring to find another planet</li>
-    <li style="color: white;">Settle down on this planet</li>
+  <ol style="background-color:white; color: black;" type="1">
+    <li style="background-color:white; color: black;"><b>Forage</b></li>
+    <li style="background-color:white; color: black;"><b>Explore</b></li>
+    <li style="background-color:white; color: black;"><b>Colonize</b></li>
   </ol> 
 
   </p>
-  <p style="background-color:black; color: white;">
-  
-    If you decide to exploit a given planet, you will get to know how rich this planet is in terms of resources and how well you get to expand on this planet. 
-    As mentioned above, this will be shown in terms of a payoff that can vary between [0, 100]. 
-    Every planet in the galaxy has a randomly specified value that can vary randomly every round in an interval of [-10, 10]. 
+  <p style="background-color:white; color: black;">
+    <img src="https://i.imgur.com/d6tqggs.png" width="400px" />
+ <br>
+ <br>
+ <h3 style="background-color:white; color: black;">Forage</h3>
+
+    If you decide to <b>forage</b> on a given <b>planet</b>, you will get to know how rich this planet is in terms of <b>resources</b>. 
+    With <b>every time</b> you decide to <b>forage</b> on this <b>planet</b>, you are <b>already collecting resources</b> that will be added to your <b>total score</b> of this level. 
+    As mentioned above, this will be shown in terms of a <b>payoff</b> that can vary between <b>[0, 100]</b>. 
+<br>
+ <br>
+    
+    <img src="https://i.imgur.com/Ov718Ox.png" width="190px"  />
+    
+    <br>
+    <br>
+
+    Every planet in the galaxy has a randomly specified value that can vary randomly every round in an interval of [-10, 10]. As harvest varies per day.
   
   </p>
-  <p style="background-color:black; color: white;">
+  <p style="background-color:white; color: black;">
   
     <b>Example</b>: Let’s say that planet 1 has a randomly specified value of 50. 
-    Every round that you decide to exploit this planet’s resources, you will be given a random value that ranges between 40 and 60 [40, 60]. 
+    Every round that you decide to forage on this planet’s resources, you will be given a random value that ranges between 40 and 60 [40, 60].  
   </p>
   
-  <p style="background-color:black; color: white;">
+  <p style="background-color:white; color: black;">
   
-  By exploiting a planet, you learn more and more about its value, which will give you a better idea of whether this planet will be feasible for you and your people. 
-  If you decide to exploit resources on a planet, you gather resources in the form of a payoff and you lose 1 decision round. 
+  By <b>foraging</b> on a <b>planet</b>, you <b>learn</b> more and more about its <b>value</b>, which will give you a <b>better idea</b> about whether this <b>planet</b> will be <b>feasible</b> for you and your people (in the long run). 
+  If you <b>decide</b> to <b>exploit resources</b> on a <b>planet</b>, you gather <b>resources</b> in the form of a payoff.
     
   
   
   
   </p>
-  <p style="background-color:black; color: white;">
+  <h3 style="background-color:white; color: black;">Explore</h3>
+  <p style="background-color:white; color: black;">
   
-    If you do not wish to stay on the current planet, because you do not like the payoff of the planet or because you believe that there might be a better planet in the orbit, 
-    you can decide to keep exploring and thereby going to the next planet. 
-    Travelling from one planet to the next one also comes with a cost. This is the exploration cost, that you will learn about before every level starts. 
+  If you do not wish to <b>stay</b> on the <b>current planet</b>, because you do <b>not like the payoff</b> of the <b>planet</b> or because you believe that there might be a better planet in the orbit, 
+  you can decide to keep <b>exploring</b> and thereby going to the next <b>planet</b>. 
+  <b>Travelling</b> from one planet to the next one also comes with a <b>cost</b> as you will have to use some of your <b>resources</b> to travel there. This is the <b>exploration cost</b>, that you will <b>learn</b> about <b>before</b> every level starts. 
     
-    
-    
+    If you decide to keep exploring, you <b>cannot</b> go back to the previous planet. 
+    <br>
+    <br>
+    <img src="https://i.imgur.com/x7733ee.png" width="360px"  />
+    <br>
+    <br>
     </p>
-
-    <p style="background-color:black; color: white;">
   
-      By clicking the <b>next button</b> below, you can go to the comprehension questions of the instructions. 
-      
-      
-      
-      </p>
+    <h3 style="background-color:white; color: black;">Colonize</h3>
 
+  If you think that you have found a <b>planet</b> that gives you <b>enough resources</b>, you can decide to <b>stay</b> on this planet <b>forever</b>. 
+  In order to do this, you can just click the button <b>Colonize</b>. Your <b>payoffs</b> will then <b>automatically</b> be iterated through the rounds until the <b>game ends</b>. 
+  This means that for this level your <b>decision-making</b> is over. 
+  <br>
+<br>
+    <img src="https://i.imgur.com/bATrgZj.png" width="360px"  />
+   <br>
+   <br>
+   <h3 style="background-color:white; color: black;">Rounds and Levels</h3>
+   <p style="background-color:white; color: black;">
+   
+  The game consists of <b>5 levels</b>. In each level, you will be navigating through a galaxy with an <b>infinite amount of planets</b>. 
+  <br>
+  With every time you <b>forage</b>, you go up one round, which is equivalent to <b>1 day</b>. With every time you <b>explore</b>, you lose <b>resources</b> (<b>exploration cost</b>).
+  <br>
+  <br>
+  <b>BE AWARE</b>: the galaxy does <b>not</b> come <b>without danger</b>. It is long known that there are <b>space snakes</b> around, and there is a <b>5% chance</b> that they <b>attack</b> you and your people.
+  The level will go on until you are attacked by <b>space snakes</b>. This can either happen while you are still <b>foraging</b> or during the days on the planet which you decided to <b>colonize</b>. 
+  If you get <b>attacked by space snakes</b> while you are still actively <b>foraging</b>, you will see a <b>GAME OVER</b> page.    </p>
 
-<h3 style="color: wheat;">Goal</h3>
-
-      <p style="background-color:black; color: white;">
+  <br>
   
-        Your goal is to maximize your payoffs in each level. At the end of each level, you will be given some feedback. 
+
+    <img src="https://i.imgur.com/v38BJzB.png" width="700px"  />
+
+  <br> 
+  <br>
+  If you get <b>attacked</b> while you are already settled down on a <b>planet</b>(colonized), you will
+  be informed on the <b>final results page</b> of this level. 
+
+  <br>
+  <br>
+  When the <b>game ends</b> in this <b>level</b>, you will be sent to the <b>next level</b>. This will be a <b>different galaxy</b>, with <b>different planets</b>. It is 
+  important to note that each level is <b>independent</b> of each other. 
+
+<br>
+<br>
+
+After you have <b>finished the game</b>, you will be sent to the follow-up <b>behavioral</b> and <b>demographic questions</b>. 
+
+<br>
+<br>
+
+<h3 style="background-color:white; color: black;">Payoff and Main Goal</h3>
+<p style="background-color:white; color: black;">
+  <br>
+  
+  Your <b>payoff</b> depends on the score you receive with each day you are <b>foraging</b> on a <b>planet</b>, the <b>payoff</b> you receive on the 
+  <b>planet</b> you decided to <b>settle</b> down on and the <b>exploration cost</b>. 
+  <br>
+  <br>
+
+  <img src="https://i.imgur.com/bXN9yoK.png" width="200px"  />
+ 
+<br>
+<br>
+  <b>EXAMPLE</b>: suppose on <b>"Planet 1"</b> on the first day you receive a <b>payoff</b> of <b>60</b> after you decided to <b>forage</b>. The second day <b>51</b>, after you decided to <b>forage</b> again on the same <b>planet</b>.
+  Then you decide to keep <b>exploring</b> to find a <b>better planet</b>, and <b>forage</b> on <b>"Planet 2"</b> on day 3 and receive a <b>payoff</b> of 80. Now suppose you want to <b>stay</b> on this <b>planet</b> and press <b>colonize</b>.
+  <br>
+  <br>
+  Then your <b>TOTAL SCORE</b> in that <b>level</b> will be: 
+  <br>
+  60 + 51 - (exploration cost) + 80 + 'sum of all the upcoming values on that planet until the game ends'
+
+  
+<br>
+<br>
+
+
+  
+  
+  
+  </p>
+
+      <p style="background-color:white; color: black;">
+  
+        <b>TO SUM UP</b>: Your <b>goal</b> is to try to have the <b>highest score</b> possible in each level while facing the constraint of having <b>exploration cost</b>, 
+        <b>no</b> way of <b>recalling</b> the <b>previous planet</b> and the possibility of the <b>game ending at random</b>. 
         
-        
+    
+      <b>GOOD LUCK!!!</b>  
         
         </p>
 
+        <h3 style="background-color:white; color: black;">ATTENTION</h3>
 
+Please <b>do not press</b> the <b>Planet button</b> on <b>top</b> of the <b>decision page</b>! The <b>game will end</b> if you do so! 
+<br>
+<b>Please</b> also <b>do not refresh</b> the <b>page</b> at any time <b>during the experiment</b>.
+If you wish to <b>re-start the experiment</b>, please <b>contact me</b> and I'll send you a <b>new link</b>. <b>Thank you!</b>
+<br>
+<br>
+<img src="https://i.imgur.com/yHUrVYi.png" width="140px"  />
+
+<br>
+        <p style="background-color:white; color: black;">
+  <br>
+          By <b>clicking</b> the <b>next button</b> below, you agree that you <b>carefully</b> read the <b>instructions</b>, and are now ready to <b>start the game</b>. 
+          
+          
+          
+          </p>
+    
 </body>
 </html>
 
-
+<br>
 {{ next_button }}
 
 {{ endblock }}

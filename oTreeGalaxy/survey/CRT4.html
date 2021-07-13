@@ -1,0 +1,83 @@
+{% block content %}
+<!DOCTYPE html>
+<html>
+
+
+<style>
+  p {
+   text-align:center
+  }
+
+  .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+body {
+  
+  background-attachment: fixed;
+  background-size: cover;
+  font-size: 20pt;
+  font-family: 'Press Start 2p';
+}
+
+</style>
+
+
+
+
+<body class="center">
+
+<br>
+
+
+ 
+  
+  </body>
+  </html>
+
+  <script>
+
+    let ChoiceRT4         = document.createElement("input");
+        ChoiceRT4.type         = 'hidden';
+        ChoiceRT4.name         = 'RTcrt4';
+        ChoiceRT4.id           = 'RTcrt4';
+        ChoiceRT4.value        = '';
+        var TStart       = new Date().getTime();
+        var TEnd         = new Date().getTime();
+     
+
+
+
+    document.addEventListener("DOMContentLoaded", function(debug=true) {
+            console.log('Loading info');
+            let OtreeBody     = document.getElementsByClassName("_otree-content")[0];
+            OtreeBody.appendChild(ChoiceRT4);
+
+    function addtoev() {
+            // var y = document.getElementById("container");
+            // var x = y.getElementById("choicetrial");
+            var bns = document.getElementsByTagName("button"); 
+            for (i = 0; i < bns.length; i++) {
+                bns[i].addEventListener("click", function() {
+                console.log('A button was pressed');
+                TEnd      = new Date().getTime();
+                ChoiceRT4.value = +TEnd -TStart ;   // end the timer and rewrite the RT value
+              });
+            }}
+
+            window.addEventListener("load",function() {
+            addtoev();
+            });
+          });
+</script>
+{% formfield "crt4" %}
+
+    {{ next_button }}
+
+{{ endblock }}
+  
+ 
+  

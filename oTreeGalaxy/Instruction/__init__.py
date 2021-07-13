@@ -22,6 +22,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    
     pass
 
 
@@ -30,6 +31,9 @@ class Player(BasePlayer):
 class Instruction(Page):
     pass
 
+# class Questions(Page):
+#     form_model = 'player'
+#     form_fields = []
 
 class ResultsWaitPage(WaitPage):
     pass

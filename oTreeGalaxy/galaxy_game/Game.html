@@ -1,43 +1,133 @@
+<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+<link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+
 {% block content %}
 <!DOCTYPE html>
 <html>
-  
-<br>
-<br>
 
 
-  <style>
-    body {
-    background-image: url('https://i.imgur.com/fclb61U.png');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+
+<style>
+  p {
+   text-align:center
   }
-  
-  
-  </style>
 
-<body>
+  .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+  .move {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+
+body {
+  
+  background-image: url('https://i.imgur.com/fclb61U.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font-size: 30pt;
+  font-family: 'Press Start 2p';
+}
+
+.start-btn{
+    text-align: center;
+	display: inline-block;
+	margin:5px;
+  width: 210px;
+  height: 80px;
+  font-weight: bold;
+  padding: 10px 0 10px 10px ;
+  background-color: lightgray;
+  text-shadow: -1px -1px black, 1px 1px white;
+  color: gray;
+  -webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-o-border-radius: 7px;
+	border-radius: 7px;
+    box-shadow: 0 .2em gray; 
+    cursor: pointer;
+
+}
+.video-game-button:active, .start-btn:active {
+	box-shadow: none;
+	position: relative;
+	top: .2em;
+}
+
+</style>
+
+
+
+
+<body class="center">
    
+  
+<br>
+<div class="nes-container with-title">
+   
+  <p><button class="nes-btn is-warning" name="Planet">Planet: {{planet_number}}</button></p>
+ 
+</div>
+
+  <p><img style="width:80%" src="{{ static image }}"></p>
+  <br>
+  
+  <table class=buttons>
+    <tr>
+      <p><button class='nes-btn' name="choice" value=1>FORAGE</button>
+      <button class='nes-btn' name="choice" value=0>EXPLORE</button>
+      <button class='nes-btn' name="choice" value=2 style='width:230px'>COLONIZE</button></p>
+  </table>
+  <br>
+  <br>
+ 
+  
+  
+  </body>
+  </html>
+  
+  <script>
+
+    let ChoiceRT          = document.createElement("input");
+        ChoiceRT.type         = 'hidden';
+        ChoiceRT.name         = 'RT';
+        ChoiceRT.id           = 'RT';
+        ChoiceRT.value        = '';
+        var TStart       = new Date().getTime();
+        var TEnd         = new Date().getTime();
+     
 
 
-<img style="width:60%" src="{{ static image }}">
-<br>
-<br>
-<br>
-<table class=buttons>
-  <tr>
-      <td><button class= "button" name="choice" value=1><b>Exploit Ressources</b></button>
-      <td><button class= "button" name="choice" value=0><b>Keep Exploring</b></button>
-      <td><button class= "button" name="choice" value=2><b>Stay on this Planet</b></button>
-</table>
-<br>
-<br>
-<br>
 
-<p style="background-color:black; color: white;"> <b>Round {{ subsession.round_number }}</b> </p>
-</body>
-</html>
+    document.addEventListener("DOMContentLoaded", function(debug=true) {
+            console.log('Loading info');
+            let OtreeBody     = document.getElementsByClassName("_otree-content")[0];
+            OtreeBody.appendChild(ChoiceRT);
+
+    function addtoev() {
+            // var y = document.getElementById("container");
+            // var x = y.getElementById("choicetrial");
+            var bns = document.getElementsByTagName("button"); 
+            for (i = 0; i < bns.length; i++) {
+                bns[i].addEventListener("click", function() {
+                console.log('A button was pressed');
+                TEnd      = new Date().getTime();
+                ChoiceRT.value = +TEnd -TStart ;   // end the timer and rewrite the RT value
+              });
+            }}
+
+            window.addEventListener("load",function() {
+            addtoev();
+            });
+          });
+</script>
 
 
-{{ endblock }}
+  
+  {{ endblock }}

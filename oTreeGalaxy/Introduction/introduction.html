@@ -1,6 +1,12 @@
 {{ block content }}
 
 
+<style>
+p{
+  background-color: black;
+  color:white;
+}
+</style>
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,39 +17,46 @@
 <body background = "https://i.imgur.com/WY5fV1v.jpg">
 
  
-<h1 style="color: wheat;">Welcome</h1>
+<h1 style="color: wheat;">WELCOME</h1>
 
 <p style="background-color:black; color: white;"> Thank you for taking the time to participate in my experiment. </p>
 
 <p style="background-color:black; color: white;">
-  In this study, we want to investigate human behavior in a <b>foraging game</b>. In this game you will have to collect 
-  <b>ressources</b> in a <b>galaxy</b> with <b>infinite planets</b>.
+  In this study, human behavior is investigated in a <b>foraging game</b>. You will play a foraging game in a <b>galaxy</b> with <b>infinite planets</b>.
   </p>
   <p style="background-color:black; color: white;">
   
-  The study consists of an <b>instruction page</b>, <b>comprehension questions</b> to make sure the task is well understood, 
+  The study consists of an <b>instruction page</b>, 
   a <b>foraging game</b> and a <b>questionnaire</b>. This experiment is going to take about <b>15-20 minutes</b>. 
-  The game will be fast paced. Your full <b>attention</b> is needed for this period. Therefore, we would like to ask you 
+  Your full <b>attention</b> is needed for this period. Therefore, we would like to ask you 
   to remove any distractions (e.g. phones) before starting to play the game. 
   </p>
+  <p style="background-color:black; color: white;">
+    At the end of the game you can fill in you email address if you'd like to participate in the lottery to win a prize. 
+    Out of the 5 best players, 1 will be randomly picked to win a voucher worth <b>20 euros</b> of your choice. The winner will be informed by email. 
+    </p>
+
   <p style="background-color:black; color: white;">
   
   At the end of the game, we will ask a couple of <b>behavioral questions</b> and <b>demographic questions</b> for statistical 
   purposes. Therefore, we would like to point out that your identity will remain completely <b>anonymous</b> and any information
-  provided will remain completely <b>confidential</b>. 
+  provided will remain completely <b>confidential</b>. The outcomes of this study may be used only for scientific purposes and will not be shared with any third parties.
   
   </p>
   <p style="background-color:black; color: white;">
   
-  This study is part of a Master’s Thesis in Neuroeconomics at the University of Amsterdam (UvA).
+  This study is part of a Master’s Thesis in <b>Neuroeconomics</b> at the University of Amsterdam (UvA).
   It has been designed and programmed by Moira Lampe with the supervision of Alejandro Hirmas Frisius. 
   If you have any questions about this study or concerns about privacy, please feel free to contact me 
   (moira.lampe@outlook.com).
   </p>
   
+  <p style="background-color:black; color: white;">Please conduct this experiment on a <b>laptop or computer</b> and <b>do not refresh</b> the page during the entire experiment!</p>
+
+
   <p style="background-color:black; color: white;">
   
-  By clicking the <b>next button</b> below, you agree to the terms and conditions, that your participation in 
+  By clicking the next button below, you agree to the terms and conditions, that your participation in 
   this study is voluntary and you may terminate the partipation at any time for any reason. 
   By pressing the next button you will continue to the <b>instruction page</b>. Please read the instructions carefully. 
   
@@ -53,10 +66,12 @@
   
 
 
-</body>
-</html>
 
+{{formfields}}
 
 {{ next_button }}
+
+</body>
+</html>
 
 {{ endblock }}

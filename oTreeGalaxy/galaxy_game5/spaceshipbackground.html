@@ -1,0 +1,99 @@
+<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+<link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+
+{{ block content }}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="nes-container with-title" style=background-color:white;>
+  <span class="title">Level 5</span> 
+  <p style=color:black;background-color:white;>Welcome on Board. You are now approaching your first planet.</p>
+  <p style=color:black;background-color:white;>In this level, exploring has a cost of <b>'-50'</b>.</p>
+  <p style=color:black;background-color:white;>Deciding to forage will give you more information about the planet. Meanwhile you are accumulating points.</p>
+  <p style=color:black;background-color:white;>Remember that once you decide to stay on this planet (colonizing), you will keep accumulating points on this planet, until the game stops at random (with a 5% change) </p>
+  <p style=color:black;background-color:white;>You can press the "START GAME" button below to proceed.</p>
+  <p class="center"><button class="nes-btn">Start Game</button></p>
+</div>
+
+<br>
+<br>
+<br>
+
+<style>
+
+.center {
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 30%;
+}
+  
+  body {
+  margin:0 auto;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background-image: url('https://i.imgur.com/uiZ6RxI.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.text-typing {
+  padding:20px 30px;
+  background:#f5f5f5;
+  font-size:20px;
+  font-family:monospace;
+  border-radius:50px;
+  align-items:center;
+}
+.text-typing p {
+  margin:0px;
+  white-space:nowrap;
+  overflow:hidden;
+  animation:typing 10s steps(40,end) forwards,
+            blink 1s infinite;
+}
+@keyframes typing {
+  0% { width:0% }
+  100% { width:100% }
+}
+@keyframes blink {
+  0%,100% {
+    border-right:2px solid transparent;
+  }
+  50% {
+    border-right:2px solid #222;
+  }
+}
+
+</style>
+
+
+
+{{ endblock }}

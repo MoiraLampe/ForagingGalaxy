@@ -1,12 +1,21 @@
+<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+<link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+
 <style>
 
-    .otree-timer {
-        display: none;
-    }
+  .otree-timer {
+      display: none;
+  }
+  .center {
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 30%;
+}
 </style>
 
-
 {{ block content }}
+
 
 <!DOCTYPE html>
 <html>
@@ -15,16 +24,25 @@
     <title>Page Title</title>
 </head>
 
-<body background = "https://i.imgur.com/fclb61U.png">
-    <h1 style="color: wheat;">This round's payoff: {{player.payoff}}</h1>
+<body background = "https://i.imgur.com/fclb61U.png" class="center">
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="nes-container with-title">
    
-        
-    <h2 style="color: wheat;">Current Planet: Planet {{planet_number}}</h2>
-
-
+  <button class="nes-btn is-warning">Score:{{player.payoff}}</button>
+ 
+</div>
 </body>
-</html>
-    
 {{ endblock }}
+
+
+
 
 

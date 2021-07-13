@@ -22,12 +22,14 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    pass
+   pass
+    
 
 
 # PAGES
 class Introduction(Page):
-    pass
+   form_model = 'player'
+  
 
 
 class ResultsWaitPage(WaitPage):

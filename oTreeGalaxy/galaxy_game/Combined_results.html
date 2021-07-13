@@ -1,5 +1,21 @@
 
 
+<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+<link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+
+<style>
+
+  .otree-timer {
+      display: none;
+  }
+  .center {
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 30%;
+}
+</style>
+
 {{ block content }}
 
 
@@ -10,18 +26,25 @@
     <title>Page Title</title>
 </head>
 
-<body background = "https://i.imgur.com/fclb61U.png">
-    <h1 style="color: wheat;">Total payoff: {{total_payoff}}</h1>
-   
-        
+<body background = "https://i.imgur.com/fclb61U.png" class="center">
+
+
+<div class="nes-container">
+  <br>
+  <br>
+  <br>
+  <button class="nes-btn is-warning">Total Score:{{total_payoff}}</button>
+
  
 
-
-</body>
-</html>
     
-
-
-    {{ next_button }}
+  <button class="nes-btn is-danger">Space snake attack happened on: 
+    <br>Day {{gameover}}</button>
+ 
+ 
+  <button class="nes-btn is-primary">Press this button to proceed</button>
+ 
+</div>
+</body>
 {{ endblock }}
 

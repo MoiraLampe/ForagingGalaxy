@@ -2,33 +2,45 @@ from os import environ
 
 
 SESSION_CONFIGS = [
-    dict(
-        name='Introduction',
-        app_sequence=['Introduction'], #not sure what app sequence stands for?
-        num_demo_participants=1,
-      ),
-    dict(
-        name='Instruction',
-        app_sequence=['Introduction', 'Instruction','Planet_Game', 'survey'], #not sure what app sequence stands for?
-        num_demo_participants=1,
-    ),
+    # dict(
+    #     name='Introduction',
+    #     app_sequence=['Introduction'], #not sure what app sequence stands for?
+    #     num_demo_participants=1,
+    #   ),
+    # dict(
+    #     name='Instruction',
+    #     app_sequence=['Introduction', 'Instruction','Planet_Game', 'survey'], #not sure what app sequence stands for?
+    #     num_demo_participants=1,
+    # ),
       
-    dict(
-        name='Planet_Game',
-        app_sequence=['Introduction', 'Instruction','Planet_Game', 'survey'], #not sure what app sequence stands for?
-        num_demo_participants=1,
-    ),
+    # dict(
+    #     name='Planet_Game',
+    #     app_sequence=['Introduction', 'Instruction','Planet_Game', 'survey'], #not sure what app sequence stands for?
+    #     num_demo_participants=1,
+    # ),
       dict(
         name='galaxy_game',
-        app_sequence=['Introduction','Instruction','galaxy_game','survey','EndOfGame'], #not sure what app sequence stands for?
+        app_sequence=['Introduction','Instruction','galaxy_game','galaxy_game2', 'galaxy_game3', 'galaxy_game4', 'galaxy_game5','survey'], #not sure what app sequence stands for?
         num_demo_participants=10,
       ),
-    dict(
-        name='Survey',
-        app_sequence=['Planet_Game', 'survey'],
-        num_demo_participants=1,
-    ), #do I want to merge them together?
+    # dict(
+    #     name='galaxy_gametest',
+    #     app_sequence=['galaxy_game'], #not sure what app sequence stands for?
+    #     num_demo_participants=20,
+    #   ),
+    # dict(
+    #     name='Survey',
+    #     app_sequence=['survey'],
+    #     num_demo_participants=1,
+    # ),
+    #  dict(
+    #     name='galaxy_game2',
+    #     app_sequence=['galaxy_game2'],
+    #     num_demo_participants=10,
+    #   ) 
 ]
+
+PARTICIPANT_FIELDS = ['max_round']
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
 # in SESSION_CONFIGS, except those that explicitly override it.
