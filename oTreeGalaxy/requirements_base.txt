@@ -1,4 +1,2 @@
-otree>=2.5.0
-numpy>=1.16.2
-pandas>=1.0.4
-json>=1.0.0
+# You should put your requirements in requirements.txt instead.
+# You can delete this file.
