@@ -1,6 +1,5 @@
 from os import stat
 from otree.api import *
-import random
 import numpy as np
 np.random.seed(163)
 
