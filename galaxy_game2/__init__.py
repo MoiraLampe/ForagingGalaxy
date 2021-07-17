@@ -158,7 +158,7 @@ class Results(Page):
         }
     
 class spaceship(Page):
-    timeout_seconds = 4
+    timeout_seconds = 3
     timer_text = ''
 
     @staticmethod
@@ -237,6 +237,16 @@ class stay(Page):
         else:
             return False
 
+class stay_loading(Page):
+    timeout_seconds = 3
+    @staticmethod
+    def is_displayed(player):
+        if player.choice == 2:
+            return True
+        else:
+            return False
+       
+
 class gameover(Page):
     # timeout_seconds = 3
     @staticmethod
@@ -288,4 +298,4 @@ class Discount(Page):
 
 
         
-page_sequence = [spaceship, spaceshipbackground, startgame, Game, gameover, ExploreWait, ExploitWait, Results, stay, Combined_results]
+page_sequence = [spaceship, spaceshipbackground, startgame, Game, gameover, ExploreWait, ExploitWait, Results, stay_loading, stay, Combined_results]
