@@ -171,7 +171,7 @@ class spaceshipbackground(Page):
        return player.round_number == 1
 
 class startgame(Page):
-    timeout_seconds = 3
+    timeout_seconds = 2
     @staticmethod
     def is_displayed(player):
           return player.round_number == 1
@@ -179,7 +179,7 @@ class startgame(Page):
 
 
 class ExploreWait(Page):
-    timeout_seconds = 3
+    timeout_seconds = 2
     @staticmethod
     def is_displayed(player):
      return player.choice == 0
