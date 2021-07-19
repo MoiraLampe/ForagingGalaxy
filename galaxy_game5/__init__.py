@@ -294,7 +294,7 @@ class Combined_results(Page):
         return {
             'total_payoff': total_payoff,
             'planet_number': number_of_exploratory_choices,
-            'gameover': 59 + number_of_exploratory_choices - 1
+           
         }
 
     # def vars_for_template(player: Player):

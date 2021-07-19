@@ -166,13 +166,13 @@ class Results(Page):
             'planet_number': number_of_exploratory_choices
         }
     
-class spaceship(Page):
-    timeout_seconds = 3
-    timer_text = ''
+# class spaceship(Page):
+#     timeout_seconds = 3
+#     timer_text = ''
 
-    @staticmethod
-    def is_displayed(player):
-      return player.round_number == 1
+#     @staticmethod
+#     def is_displayed(player):
+#       return player.round_number == 1
 
 class spaceshipbackground(Page):
     @staticmethod
@@ -287,7 +287,7 @@ class Combined_results(Page):
         return {
             'total_payoff': total_payoff,
             'planet_number': number_of_exploratory_choices,
-            'gameover': 47 + number_of_exploratory_choices - 1
+            
         }
 class Discount(Page):
     @staticmethod
@@ -307,4 +307,4 @@ class Discount(Page):
 
 
         
-page_sequence = [spaceship, spaceshipbackground, startgame, Game, gameover, ExploreWait, ExploitWait, Results,stay_loading, stay, Combined_results]
+page_sequence = [spaceshipbackground, startgame, Game, gameover, ExploreWait, ExploitWait, Results,stay_loading, stay, Combined_results]
