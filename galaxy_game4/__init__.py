@@ -14,14 +14,23 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 100
     current_planet = 1
-    exploring_cost = 15
+    exploring_cost = 5
     minimum_number_of_rounds_player = 21
     df_thresh = 0.95
    
     rewards = {}
     for planet in range(1, 366): #for each planet
         rewards[planet] = {}
-        current_planet_center = np.random.randint(1, 10)*10 
+        if planet <= 3:
+            current_planet_center = np.random.randint(3, 7)*10 
+        elif planet > 3 and planet <= 5:
+            current_planet_center = np.random.randint(5, 9)*10
+        elif planet >5:
+            current_planet_center = np.random.randint(6, 10)*10
+        # if planet <= 4:
+        #    current_planet_center = np.random.randint(3, 7)*10 
+        # else:
+        #     current_planet_center = ((int(np.random.beta(10, 10)*100) % 9)+1) * 10
         for r in range(1, 466): #number of exploiting choice
             rewards[planet][r] = np.random.randint(current_planet_center - 10, current_planet_center + 10)
     
@@ -279,7 +288,7 @@ class Combined_results(Page):
         return {
             'total_payoff': total_payoff,
             'planet_number': number_of_exploratory_choices,
-            'gameover': 75 + number_of_exploratory_choices - 1
+            'gameover': 28 + number_of_exploratory_choices - 1
         }
 class Discount(Page):
     @staticmethod

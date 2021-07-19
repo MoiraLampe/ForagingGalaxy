@@ -1,8 +1,8 @@
 from os import stat
 from otree.api import *
-import random
 import numpy as np
-np.random.seed(111)
+np.random.seed(163)
+
 
 doc = """
 Your app description
@@ -14,14 +14,23 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 100
     current_planet = 1
-    exploring_cost = 50
-    minimum_number_of_rounds_player = 6
+    exploring_cost = 25
+    minimum_number_of_rounds_player = 21
     df_thresh = 0.95
    
     rewards = {}
     for planet in range(1, 366): #for each planet
         rewards[planet] = {}
-        current_planet_center = np.random.randint(1, 10)*10 
+        if planet <= 3:
+            current_planet_center = np.random.randint(3, 7)*10 
+        elif planet > 3 and planet <= 5:
+            current_planet_center = np.random.randint(5, 9)*10
+        elif planet >5:
+            current_planet_center = np.random.randint(6, 10)*10
+        # if planet <= 4:
+        #    current_planet_center = np.random.randint(3,7)*10 
+        # else:
+        #     current_planet_center = ((int(np.random.beta(10, 10)*100) % 9)+1) * 10
         for r in range(1, 466): #number of exploiting choice
             rewards[planet][r] = np.random.randint(current_planet_center - 10, current_planet_center + 10)
     
@@ -57,6 +66,7 @@ class Player(BasePlayer):
     disc_factor = models.BooleanField()
     stay_forever = models.BooleanField()
     explored = models.IntegerField()
+    planet_center = models.IntegerField()
 
 
 
@@ -79,8 +89,10 @@ class Game(Page):
         player.disc_factor = current_discount_factor
         
         
+        
         if current_discount_factor:
             player.payoff = 0
+            
         else:
             if player.choice == 0:
                 if player.round_number == Constants.num_rounds:
@@ -114,7 +126,7 @@ class Game(Page):
         if player.round_number == 1:
             return {
                 'planet_number':1 ,
-                'image'    :  "".join(['level2/1.png']) ,     
+                'image'    :  "".join(['level1/1.jpeg']) ,     
             }
         else:
             all_players = player.in_all_rounds()
@@ -122,7 +134,7 @@ class Game(Page):
             stayed =  sum([p.choice == 2 for p in all_players]) >= 1
             return {
                 'planet_number': number_of_exploratory_choices ,
-                'image'    :  "".join(['level2/', str(number_of_exploratory_choices), '.png']) ,
+                'image'    :  "".join(['level1/', str(number_of_exploratory_choices), '.jpeg']) ,
                 'choice':player.choice,
                 'stayed':stayed,
                 'df': Constants.dfs_checks[player.round_number - 1],
@@ -130,7 +142,7 @@ class Game(Page):
 
         
 class Results(Page):
-    timeout_seconds = 3
+    timeout_seconds = 2
     timer_text = ''
     @staticmethod
     def is_displayed(player: Player):
@@ -147,13 +159,15 @@ class Results(Page):
         elif player.choice ==0:
             return True
         
+        
+        
     @staticmethod
     def vars_for_template(player: Player):
         all_players = player.in_all_rounds()
         number_of_exploratory_choices = len(all_players) - sum([p.choice == 1 for p in all_players]) + 1 # same as current
         
         return {
-            'planet_number': number_of_exploratory_choices
+            'planet_number': number_of_exploratory_choices - 1
         }
     
 class spaceship(Page):
@@ -196,6 +210,7 @@ class ExploitWait(Page):
         current_discount_factor = Constants.dfs_checks[player.round_number - number_of_exploratory_choices +1]
         if player.choice == 1 and player.round_number != Constants.num_rounds and not stayed and not current_discount_factor: #Constants.dfs_checks[player.round_number]:
             return True
+        #if player.choice == 1 and not Constants.dfs_checks[player.round_number + 1] and player.round_number != Constants.num_rounds and not stayed and not current_discount_factor:
         elif player.choice ==2:
             return False
         elif player.choice ==0:
@@ -227,6 +242,7 @@ class ExploitWait(Page):
 
 class stay(Page):
     timeout_seconds = 3
+    
     @staticmethod
     def is_displayed(player):
         all_players = player.in_all_rounds()
@@ -235,6 +251,7 @@ class stay(Page):
             return True
         else:
             return False
+
 class stay_loading(Page):
     timeout_seconds = 3
     @staticmethod
@@ -257,6 +274,7 @@ class gameover(Page):
         return True
      else:
         return False #show this whenever gameover
+        
        
 class Combined_results(Page):
     
@@ -276,8 +294,23 @@ class Combined_results(Page):
         return {
             'total_payoff': total_payoff,
             'planet_number': number_of_exploratory_choices,
-            'gameover': 69 + number_of_exploratory_choices - 1
+            'gameover': 59 + number_of_exploratory_choices - 1
         }
+
+    # def vars_for_template(player: Player):
+    #     stayed =  sum([p.choice == 2 for p in all_players]) >= 1
+    #     all_players = player.in_all_rounds()
+    #     number_of_exploratory_choices = len(all_players) - sum([p.choice != 0 for p in all_players]) + 1
+    #     current_discount_factor = Constants.dfs_checks[player.round_number - number_of_exploratory_choices +1]
+    #     if player.round_number == Constants.num_rounds and player.choice == 2:
+    #         return {
+    #             'gameover': 100,
+    #         }
+    #     elif stayed == True:
+    #         return {
+    #          'gameover': 76 + number_of_exploratory_choices,
+    #         }
+    
 class Discount(Page):
     @staticmethod
     def is_displayed(player: Player):

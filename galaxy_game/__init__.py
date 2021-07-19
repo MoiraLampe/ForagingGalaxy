@@ -3,6 +3,7 @@ from otree.api import *
 import numpy as np
 np.random.seed(163)
 
+
 doc = """
 Your app description
 
@@ -13,14 +14,23 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 100
     current_planet = 1
-    exploring_cost = 15
+    exploring_cost = 5
     minimum_number_of_rounds_player = 21
     df_thresh = 0.95
    
     rewards = {}
     for planet in range(1, 366): #for each planet
         rewards[planet] = {}
-        current_planet_center = np.random.randint(1, 10)*10 
+        if planet <= 3:
+            current_planet_center = np.random.randint(3, 7)*10 
+        elif planet > 3 and planet <= 5:
+            current_planet_center = np.random.randint(5, 9)*10
+        elif planet >5:
+            current_planet_center = np.random.randint(6, 10)*10
+        # if planet <= 4:
+        #    current_planet_center = np.random.randint(3, 7)*10 
+        # else:
+        #     current_planet_center = ((int(np.random.beta(10, 10)*100) % 9)+1) * 10
         for r in range(1, 466): #number of exploiting choice
             rewards[planet][r] = np.random.randint(current_planet_center - 10, current_planet_center + 10)
     
@@ -53,9 +63,10 @@ class Player(BasePlayer):
     )
     Planet = models.IntegerField()
     RT = models.FloatField(blank=True)
-    disc_factor = models.BooleanField()
+    disc_factor = models.BooleanField(blank=True)
     stay_forever = models.BooleanField()
     explored = models.IntegerField()
+    planet_center = models.IntegerField()
 
 
 
@@ -76,11 +87,13 @@ class Game(Page):
         player.explored = number_of_exploratory_choices - 1
         current_discount_factor = Constants.dfs_checks[player.round_number - number_of_exploratory_choices +1]
         player.disc_factor = current_discount_factor
+        give_me_round_number = 0
+        
         
         
         if current_discount_factor:
             player.payoff = 0
-            #player.choice = 3
+            give_me_round_number == player.round_number
         else:
             if player.choice == 0:
                 if player.round_number == Constants.num_rounds:
@@ -275,14 +288,18 @@ class Combined_results(Page):
         total_payoff = 0
         all_players = player.in_all_rounds()
         number_of_exploratory_choices = len(all_players) - sum([p.choice != 0 for p in all_players]) + 1 # same as current
-        
+        give_me_round_number = 0
+        current_discount_factor = Constants.dfs_checks[player.round_number - number_of_exploratory_choices +1]
+        if player.disc_factor == True:
+                give_me_round_number == player.round_number
+
         for p in all_players:
             total_payoff += p.payoff 
         
         return {
             'total_payoff': total_payoff,
             'planet_number': number_of_exploratory_choices,
-            'gameover': 32 + number_of_exploratory_choices - 1
+            'gameover': 48 + number_of_exploratory_choices - 1
         }
 
     # def vars_for_template(player: Player):

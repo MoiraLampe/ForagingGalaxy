@@ -17,6 +17,10 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    
+    code =models.StringField(
+        label = "If you are a participant from Prolific, please fill in your code (if not, fill in a /)"
+    )
     age = models.IntegerField(label='What is your age?', min=18, max=125)
     gender = models.StringField(
         choices=[['Male', 'Male'], ['Female', 'Female'], ['Other','Other']],
@@ -349,17 +353,52 @@ class Player(BasePlayer):
         default = 1
     )
 
+    diff_strat = models.StringField(
+         choices = [[1, 'Does not apply at all'], [0,'Rather does not apply'], [2,'Rather applies'], [3, 'Applies exactly']],
+         widget = widgets.RadioSelectHorizontal,
+         default = 1
+    )
 
+    rand_strat =  models.StringField(
+         choices = [[1, 'Does not apply at all'], [0,'Rather does not apply'], [2,'Rather applies'], [3, 'Applies exactly']],
+         widget = widgets.RadioSelectHorizontal,
+         default = 1
+    )
+
+    bored_strat =  models.StringField(
+         choices = [[1, 'Does not apply at all'], [0,'Rather does not apply'], [2,'Rather applies'], [3, 'Applies exactly']],
+         widget = widgets.RadioSelectHorizontal,
+         default = 1
+    )
+    strat = models.StringField(
+    label="Please shortly describe your strategy during the game",
+    )
 
 
 # FUNCTIONS
 # PAGES
+class different(Page):
+ form_model = 'player'
+ form_fields = ['diff_strat']
+
+class rand (Page):
+    form_model = 'player'
+    form_fields = ['rand_strat']
+
+class bored(Page):
+    form_model = 'player'
+    form_fields = ['bored_strat']
+
+class strategy(Page):
+    form_model = 'player'
+    form_fields = ['strat']
+
 class Instructions(Page):
     form_model = 'player'
  
 class Demographics(Page):
     form_model = 'player'
-    form_fields = ['age', 'gender','nationality','english_level','profession','if_other_prof','education','if_other_edu','email']
+    form_fields = ['age', 'gender','nationality','english_level','profession','if_other_prof','education','if_other_edu','email','code']
 
 class CRT1(Page):
     form_model = 'player'
@@ -626,7 +665,7 @@ class bigO10(Page):
 class ThankYou(Page):
     form_model = 'player'
 
-page_sequence = [Instructions, bigN1, bigC4, bigE3, bigC3, bigN7, bigO7, bigC2, bigN5, bigO2, bigE8, bigO3,  bigO5, CRT1, bigE6, bigO4, bigO10, bigN3, bigC9, bigO1, bigO6, bigC5, bigC6, bigC7, CRT2, bigE10, bigO9, bigO8, CRT3, bigE9, bigE4, bigE5, bigN8, bigN9, bigN10, bigE7, bigE1, bigE2, bigN4, bigC8, bigC10, bigN6, CRT4, bigC1, bigN2, RiskQ1, RiskQ2, RiskQ3, RiskQ4, RiskQ5, RiskQ5, RiskQ6, RiskQ7, RiskQ8, RiskQ9, RiskQ10, Demographics, ThankYou]
+page_sequence = [Instructions, different, bored, rand, strategy, bigN1, bigC4, bigE3, bigC3, bigN7,  bigO7, bigC2, bigN5, bigO2, bigE8, bigO3,  bigO5, CRT1, bigE6, bigO4, bigO10, bigN3, bigC9, bigO1, bigO6, bigC5, bigC6, bigC7, CRT2, bigE10, bigO9, bigO8, CRT3, bigE9, bigE4, bigE5, bigN8, bigN9, bigN10, bigE7, bigE1, bigE2, bigN4, bigC8, bigC10, bigN6, CRT4, bigC1, bigN2, RiskQ1, RiskQ2, RiskQ3, RiskQ4, RiskQ5, RiskQ5, RiskQ6, RiskQ7, RiskQ8, RiskQ9, RiskQ10, Demographics, ThankYou]
 
     
 
