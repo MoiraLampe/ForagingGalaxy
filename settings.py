@@ -23,6 +23,7 @@ SESSION_CONFIGS = [
         app_sequence=['Introduction','Instruction','galaxy_game','galaxy_game2', 'galaxy_game3', 'galaxy_game4', 'galaxy_game5','survey'], #not sure what app sequence stands for?
         num_demo_participants=10,
       ),
+     
     # dict(
     #     name='galaxy_gametest',
     #     app_sequence=['galaxy_game'], #not sure what app sequence stands for?
@@ -30,6 +31,11 @@ SESSION_CONFIGS = [
     #   ),
     # dict(
     #     name='Survey',
+    #     app_sequence=['survey'],
+    #     num_demo_participants=1,
+    # ),
+    # dict(
+    #     name='ble',
     #     app_sequence=['survey'],
     #     num_demo_participants=1,
     # ),

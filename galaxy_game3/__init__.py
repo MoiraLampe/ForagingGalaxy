@@ -149,7 +149,7 @@ class Results(Page):
         current_discount_factor = Constants.dfs_checks[player.round_number - number_of_exploratory_choices +1]
        
 
-        if player.choice == 1 and not Constants.dfs_checks[player.round_number + 1] and player.round_number != Constants.num_rounds and not stayed and not current_discount_factor: #Constants.dfs_checks[player.round_number]:
+        if player.choice == 1 and not Constants.dfs_checks[player.round_number - number_of_exploratory_choices + 1] and player.round_number != Constants.num_rounds and not stayed and not current_discount_factor: #Constants.dfs_checks[player.round_number]:
             return True
         elif player.choice ==2:
             return False

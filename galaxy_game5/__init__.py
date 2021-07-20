@@ -1,7 +1,7 @@
 from os import stat
 from otree.api import *
 import numpy as np
-np.random.seed(163)
+np.random.seed(111)
 
 
 doc = """
@@ -14,7 +14,7 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 100
     current_planet = 1
-    exploring_cost = 25
+    exploring_cost = 50
     minimum_number_of_rounds_player = 21
     df_thresh = 0.95
    
@@ -152,7 +152,7 @@ class Results(Page):
         current_discount_factor = Constants.dfs_checks[player.round_number - number_of_exploratory_choices +1]
        
 
-        if player.choice == 1 and not Constants.dfs_checks[player.round_number + 1] and player.round_number != Constants.num_rounds and not stayed and not current_discount_factor: #Constants.dfs_checks[player.round_number]:
+        if player.choice == 1 and not Constants.dfs_checks[player.round_number - number_of_exploratory_choices +1] and player.round_number != Constants.num_rounds and not stayed and not current_discount_factor: #Constants.dfs_checks[player.round_number]:
             return True
         elif player.choice ==2:
             return False
